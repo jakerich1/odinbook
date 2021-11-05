@@ -1,0 +1,64 @@
+.nav-left{
+    padding: 1em;
+
+    @media screen and (max-width: 1130px) {
+        &{
+            padding-right: 0em;
+        } 
+    }
+
+    .sticky{
+        position: sticky;
+        top: 88px;
+
+        a{
+            text-decoration: none;
+
+            .link{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: white;
+                padding: 0.5em 1.5em;
+                margin-bottom: 12px;
+                border-radius: 200px;
+                cursor: pointer;
+                transition: all 0.1s ease-in;
+                box-shadow: 2px 2px 1px 1px #ebebeb;
+
+                &:hover{
+                    filter: brightness(0.95);
+                }
+
+                .icon{
+
+                    svg{
+                        display: block;
+                        height: 30px;
+                        width: 30px;
+                        stroke: #1877f2;
+                    }
+                }
+
+                .link-text{
+                    color: #1877f2;
+                    width: max-content;
+                    margin-left: 20px;
+                }
+
+                @media screen and (max-width: 1130px) {
+                    
+                    &{
+                        padding: 0.5em;
+                    
+                        .link-text{
+                            display: none;
+                        }
+                    }
+                
+                    
+                }
+            }
+        }
+    }
+}

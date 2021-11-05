@@ -1,0 +1,86 @@
+#user-profile{
+    flex: 1;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+
+        img{
+            display: block;
+            background: white;
+            border: 6px solid white;
+            box-shadow: 2px 2px 1px 1px #e0e0e0;
+            width: 200px;
+            border-radius: 100px;
+        }
+        
+        .bio{
+            margin-top: 1em;
+            padding: 1em 2em;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 2px 2px 1px 1px #e0e0e0;
+
+            div{
+                text-align: center;
+                color: rgb(80, 80, 80);
+
+                &:first-child{
+                    color: black;
+                    text-align: center;
+                    font-size: 26px;
+                }
+            }
+
+            button{
+                display: block;
+                background: #1877f2;
+                color: white;
+                border-radius: 400px;
+                border: none;
+                font-size: 18px;
+                padding: 0.5em 1.5em;
+                margin-top: 0.75em;
+                cursor: pointer;
+                transition: all 0.1s ease-in-out;
+
+                &:hover{
+                    filter: brightness(0.95);
+                }
+            }
+
+            .request-btn{
+                display: block;
+                margin: auto;
+                margin-top: 1em;
+                background-color: #919191;
+            }
+        }
+    }
+
+    section{
+        padding: 1em;
+        max-width: 600px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        svg{
+            margin-top: 1em;
+            margin:auto;
+        }
+
+        #no-post{
+            display: block;
+            text-align: center;
+            margin: auto;
+        }
+    }
+}
