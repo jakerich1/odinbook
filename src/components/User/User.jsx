@@ -88,12 +88,12 @@ function User() {
     if (!friend) {
       fetchUserRequests(id).then((res) => {
         if (isSubscribed) {
-          if (res.data.issuer_requests.length > 0) {
+          if (res.data.issuer_requests[0]) {
             if (res.data.issuer_requests[0].status === 'pending') {
               setPendingIssuer(res.data.issuer_requests[0]._id);
             }
           }
-          if (res.data.issuer_requests.length > 0) {
+          if (res.data.recipient_requests[0]) {
             if (res.data.recipient_requests[0].status === 'pending') {
               setPendingRecipient(res.data.recipient_requests[0]._id);
             }
@@ -148,6 +148,8 @@ function User() {
     declineRequest(requestId).then(() => {
       setToggleRequest(!toggleRequest);
       setToggleInfo(!toggleInfo);
+      setPendingIssuer(false);
+      setPendingRecipient(false);
     }).catch((error) => {
       auth.setErrorMessage(error.message);
       auth.setErrorModal(true);
@@ -193,7 +195,6 @@ function User() {
                   {relationship}
                 </div>
               ) : '' }
-              {friend ? '' : '' }
               {cancelShow()}
             </div>
           </header>
@@ -210,6 +211,7 @@ function User() {
                 lastName={post.user.facebook.lastName}
                 profilePicture={post.user.profilePicture}
                 data={post}
+                image={post.image}
               />
             ))}
             {noPosts()}

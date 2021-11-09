@@ -65,11 +65,11 @@ function DashRequest() {
       </div>
       <div className="fr-body">
         <div className="request-detail">
-          <img src={request ? request.issuer.profile_picture : ''} alt="mini profile" />
+          <img src={request ? request.issuer.profilePicture : ''} alt="mini profile" />
           <div className="detail-name">
-            {request ? request.issuer.facebook.first_name : ''}
+            {request ? request.issuer.facebook.firstName : ''}
             {' '}
-            {request ? request.issuer.facebook.last_name : ''}
+            {request ? request.issuer.facebook.lastName : ''}
           </div>
         </div>
         <div className="fr-action">

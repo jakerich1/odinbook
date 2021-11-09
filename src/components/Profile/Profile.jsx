@@ -7,7 +7,7 @@ import Dropzone from 'react-dropzone';
 import { useEffect, useState, React } from 'react';
 import jwt_decode from 'jwt-decode';
 import {
-  fetchMyPosts, userInfo, updateRelationship, getS3Url, updateProfilePicture,
+  fetchMyPosts, userInfo, deleteUser, updateRelationship, getS3Url, updateProfilePicture,
 } from '../../api/api';
 import Post from '../Post/Post';
 import TopNav from '../TopNav/TopNav';
@@ -34,17 +34,28 @@ function Profile() {
   const [posts, setPosts] = useState([]);
   const [fetchingPosts, setFetchingPosts] = useState(false);
 
+  // User acount deletion state
+  const [displayDelete, setDisplayDelete] = useState(false);
+  const [deletingAccount, setDeletingAccount] = useState(false);
+  const [deleted, setDeleted] = useState(false);
+
   // Relationship edit state
   const [relationship, setRelationship] = useState('');
   const [newRelationship, setNewRelationship] = useState('');
   const [relationshipError, setRelationshipError] = useState('');
   const [editRelationship, setEditRelationship] = useState(false);
 
-  const handleCloseModal = (e) => {
-    const targetId = e.target.id;
-    if (targetId === 'image-modal') {
-      setImageForm(false);
-    }
+  const deleteAccount = () => {
+    setDeletingAccount(true);
+    deleteUser().then(() => {
+      setDeleted(true);
+      setDeletingAccount(false);
+    }).catch((error) => {
+      auth.setErrorMessage(error.message);
+      auth.setErrorModal(true);
+      setDeleted(false);
+      setDeletingAccount(false);
+    });
   };
 
   const displayImg = (file) => {
@@ -79,11 +90,20 @@ function Profile() {
         setPreview(false);
         setFormFile(false);
         setImageForm(false);
+        window.location.reload();
       } catch (error) {
         auth.setErrorMessage(error.message);
         auth.setErrorModal(true);
         setSubmittingImage(false);
       }
+    }
+  };
+
+  const handleCloseModal = (e) => {
+    const targetId = e.target.id;
+    if (targetId === 'image-modal' || targetId === 'delete-modal-overlay') {
+      setImageForm(false);
+      setDisplayDelete(false);
     }
   };
 
@@ -118,7 +138,7 @@ function Profile() {
     setNewRelationship(e.target.value);
   };
 
-  // Fetch users info on page load to populate navbar
+  // Fetch users info on page load to populate profile info
   useEffect(() => {
     let isSubscribed = true;
 
@@ -223,7 +243,40 @@ function Profile() {
               </div>
             </div>
             <div className="bio">
-              <div>{name}</div>
+              <div className="profile-name">
+                {name}
+                {' '}
+                <svg onClick={() => { setDisplayDelete(!displayDelete); }} id="delete-account" xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#9e9e9e" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <line x1="4" y1="7" x2="20" y2="7" />
+                  <line x1="10" y1="11" x2="10" y2="17" />
+                  <line x1="14" y1="11" x2="14" y2="17" />
+                  <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                  <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                </svg>
+                <div style={{ display: displayDelete ? 'flex' : 'none' }} id="delete-modal-overlay">
+                  <div id="delete-modal-inner">
+                    {deleted ? '' : 'Are you sure you wish to delete your account?'}
+
+                    {deleted ? 'Your account has now been scheduled for deletion, you may now log-out'
+                      : (
+                        <button onClick={deleteAccount} type="button">
+                          {
+                        deletingAccount
+                          ? (
+                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-rotate-clockwise" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ffffff" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5" />
+                            </svg>
+                          )
+                          : 'Delete account'
+                      }
+                        </button>
+                      )}
+
+                  </div>
+                </div>
+              </div>
               <div>{`Joined ${created}`}</div>
               <div style={{ display: editRelationship ? 'none' : 'flex' }} className="relationship">
                 {`Relationship status: ${relationship}`}
@@ -268,6 +321,7 @@ function Profile() {
                 firstName={postVal.user.facebook.firstName}
                 lastName={postVal.user.facebook.lastName}
                 createdFormat={postVal.createdFormat}
+                image={postVal.image}
               />
             ))}
           </section>

@@ -15,10 +15,10 @@ function App() {
   const auth = useAuth();
 
   const conditionalSignIn = () => {
-    if (auth.user) {
-      return (
-        <Dashboard />
-      );
+    if (auth.loading) {
+      return (<>Loading</>);
+    } if (auth.user) {
+      return (<Dashboard />);
     }
     return (<SignIn />);
   };

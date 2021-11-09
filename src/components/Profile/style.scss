@@ -70,6 +70,17 @@ main{
                     }
                 }
 
+                .profile-name{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 4px;
+
+                    #delete-account{
+                        cursor: pointer;
+                    }
+                }
+
                 .relationship{
                     display: flex;
                     justify-content: space-between;
@@ -140,6 +151,49 @@ main{
                 margin-top: 1em;
                 margin:auto;
             }
+        }
+    }
+}
+
+#delete-modal-overlay{
+    background: rgba(0, 0, 0, 0.37);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000000;
+    justify-content: center;
+    padding-top: 200px;
+    cursor: pointer;
+   
+    #delete-modal-inner{
+        width: 60%;
+        max-width: 500px;
+        min-width: max-content;
+        padding: 1em;
+        height: min-content;
+        background: white;
+        border-radius: 16px;
+        padding: 2em;
+        cursor: auto;
+        border: 6px solid #eb6565;
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5em;
+
+        button{
+            padding: 0.5em 1em;
+            border: none;
+            background: #eb6565;
+            color: white;
+            border-radius: 8px;
+            width: 200px;
+            height: 40px;
+            cursor: pointer;
         }
     }
 }

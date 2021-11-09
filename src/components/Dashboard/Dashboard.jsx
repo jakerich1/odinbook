@@ -42,6 +42,7 @@ function Dashboard() {
         }
       }).catch((error) => {
         if (isSubscribed) {
+          setPage(1);
           setFetchingPosts(false);
           auth.setErrorMessage(error.message);
           auth.setErrorModal(true);
@@ -67,11 +68,6 @@ function Dashboard() {
             setPage={setPage}
           />
 
-          <svg style={{ display: fetchingPosts ? 'block' : 'none', margin: 'auto', marginTop: '1em' }} xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-rotate-clockwise" width="80" height="80" viewBox="0 0 24 24" strokeWidth="1" stroke="#9e9e9e" fill="none" strokeLinecap="round" strokeLinejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5" />
-          </svg>
-
           {posts.map((postVal) => (
             <Post
               key={postVal._id}
@@ -85,6 +81,11 @@ function Dashboard() {
               image={postVal.image}
             />
           ))}
+
+          <svg style={{ display: fetchingPosts ? 'block' : 'none', margin: 'auto', marginTop: '1em' }} xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-rotate-clockwise" width="80" height="80" viewBox="0 0 24 24" strokeWidth="1" stroke="#9e9e9e" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5" />
+          </svg>
 
           <button type="button" style={{ display: fetchingPosts ? 'none' : 'block' }} className="more-posts" onClick={() => setPage(page + 1)}>
             More posts

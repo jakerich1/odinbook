@@ -77,6 +77,8 @@ export const callSignIn = async (token) => apiInstance.post(`auth/facebook?acces
 
 export const callCheckAuth = async () => apiInstance.get('user/');
 
+export const deleteUser = async () => apiInstance.delete('user');
+
 // Error handling
 
 export const submitError = async (errorMessage) => apiInstance.post('error/', { content: errorMessage });

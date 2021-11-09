@@ -19,8 +19,10 @@ function TopNav() {
 
     if (localStorage.getItem('jwt-fe')) {
       userInfo(jwt_decode(localStorage.getItem('jwt-fe'))._id).then((res) => {
-        setName(res.data.facebook.firstName);
-        setPicture(res.data.profilePicture);
+        if (isSubscribed) {
+          setName(res.data.facebook.firstName);
+          setPicture(res.data.profilePicture);
+        }
       }).catch((error) => {
         if (isSubscribed) {
           auth.setErrorMessage(error.message);
