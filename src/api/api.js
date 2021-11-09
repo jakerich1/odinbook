@@ -2,7 +2,7 @@
 const axios = require('axios');
 
 const apiInstance = axios.create({
-  baseURL: 'http://localhost:5000/',
+  baseURL: 'https://odinbook-back.herokuapp.com/',
   timeout: 10000,
   headers: {
     Accepted: 'appication/json',
