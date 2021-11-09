@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/odinbook/static/css/main.0c18b3da.chunk.css",
-    "main.js": "/odinbook/static/js/main.6f5fa733.chunk.js",
-    "main.js.map": "/odinbook/static/js/main.6f5fa733.chunk.js.map",
+    "main.css": "/odinbook/static/css/main.71299dfa.chunk.css",
+    "main.js": "/odinbook/static/js/main.69e0184e.chunk.js",
+    "main.js.map": "/odinbook/static/js/main.69e0184e.chunk.js.map",
     "runtime-main.js": "/odinbook/static/js/runtime-main.033ce766.js",
     "runtime-main.js.map": "/odinbook/static/js/runtime-main.033ce766.js.map",
     "static/js/2.70e6e1fd.chunk.js": "/odinbook/static/js/2.70e6e1fd.chunk.js",
     "static/js/2.70e6e1fd.chunk.js.map": "/odinbook/static/js/2.70e6e1fd.chunk.js.map",
     "index.html": "/odinbook/index.html",
-    "static/css/main.0c18b3da.chunk.css.map": "/odinbook/static/css/main.0c18b3da.chunk.css.map",
+    "static/css/main.71299dfa.chunk.css.map": "/odinbook/static/css/main.71299dfa.chunk.css.map",
     "static/js/2.70e6e1fd.chunk.js.LICENSE.txt": "/odinbook/static/js/2.70e6e1fd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.033ce766.js",
     "static/js/2.70e6e1fd.chunk.js",
-    "static/css/main.0c18b3da.chunk.css",
-    "static/js/main.6f5fa733.chunk.js"
+    "static/css/main.71299dfa.chunk.css",
+    "static/js/main.69e0184e.chunk.js"
   ]
 }
