@@ -56,6 +56,8 @@ main{
                 margin-top: 1em;
                 padding: 1em 2em;
                 background: white;
+                width: 100%;
+               
                 border-radius: 16px;
                 box-shadow: 2px 2px 1px 1px #e0e0e0;
 
@@ -98,7 +100,8 @@ main{
                     align-items: space-between;
                     justify-content: center;
                     flex-direction: column;
-                    width: max-content;
+                    width: 100%;
+                    min-width: min-content;
                     gap: 4px;
 
                     .r-form{
@@ -110,7 +113,7 @@ main{
                     
                         input{
                             display: block;
-                            width: 100%;
+                            width: 150px;
                             padding: 4px;
                             border-radius: 8px;
                             border: 1px solid rgb(204, 204, 204);
@@ -121,7 +124,7 @@ main{
                             background: #1877f2;
                             padding: 3px;
                             border-radius: 12px;
-                            width: 28px;
+                            width: 24px;
                             height: 24px;
                             stroke: white;
                             cursor: pointer;
@@ -170,7 +173,7 @@ main{
     #delete-modal-inner{
         width: 60%;
         max-width: 500px;
-        min-width: max-content;
+        min-width: min-content;
         padding: 1em;
         height: min-content;
         background: white;
