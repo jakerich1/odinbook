@@ -1,6 +1,7 @@
 {
   "name": "odinbook",
   "version": "0.1.0",
+  "homepage": "https://jakerich1.github.io/odinbook",
   "private": true,
   "dependencies": {
     "@greatsumini/react-facebook-login": "^2.1.1",
@@ -23,6 +24,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

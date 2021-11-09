@@ -15,10 +15,17 @@
                 width: 42px;
                 height: 42px;
                 border-radius: 21px;
+
+                @media screen and (max-width: 500px) {
+                    &{
+                        display: none;
+                    } 
+                }
             }
 
             textarea{
                 display: block;
+                width: 100%;
                 flex: 1;
                 padding: 8px 0 8px 16px;
                 margin-left: 8px;
@@ -32,6 +39,12 @@
 
                 &:focus{
                     outline: none;
+                }
+
+                @media screen and (max-width: 500px) {
+                    &{
+                        font-size: 12px;
+                    } 
                 }
             }
 
@@ -54,6 +67,22 @@
         }
 
         .submit{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .dash-profile-submit{
+                display: none;
+                width: 30px;
+                height: 30px;
+                border-radius: 15px;
+
+                @media screen and (max-width: 500px) {
+                    &{
+                        display: block;
+                    } 
+                }
+            }
 
             button{
                 background: #1877f2;

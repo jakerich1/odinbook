@@ -48,7 +48,7 @@ function TopNav() {
                 backgroundPosition: 'center',
               }}
             />
-            <div>{name}</div>
+            {name}
           </div>
         </Link>
         <button type="button" onClick={auth.signout}>

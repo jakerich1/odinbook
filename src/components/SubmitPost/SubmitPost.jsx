@@ -193,6 +193,14 @@ function SubmitPost(props) {
         <div className="divider" />
         {imgUrl ? <img id="post-image" alt="post content" src={imgUrl} /> : ''}
         <div className="submit">
+          <div
+            className="dash-profile-submit"
+            style={{
+              backgroundImage: `url(${picture})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          />
           <button type="submit">
             Submit
           </button>

@@ -216,20 +216,43 @@ main{
         width: 60%;
         height: min-content;
         max-width: 500px;
-        min-width: max-content;
+        min-width: min-content;
         border-radius: 16px;
         padding: 2em;
         cursor: auto;
+
+        @media screen and (max-width: 500px) {
+            &{
+                padding: 1em;
+            } 
+        }
 
         .dropzone{
             padding: 0 !important;
             border-radius: 16px;
             background: #dddddd;
             cursor: pointer;
+
+            p{
+                padding: 2em;
+
+                @media screen and (max-width: 500px) {
+                    &{
+                        padding: 1em;
+                        font-size: 12px;
+                    } 
+                }
+            }
         }
 
         .info{
             margin-top: 1em;
+
+            @media screen and (max-width: 500px) {
+                &{
+                    font-size: 12px;
+                } 
+            }
         }
 
         .preview-img{

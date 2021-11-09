@@ -10,6 +10,12 @@
             width: 100%;
             padding: 1em;
 
+            @media screen and (max-width: 1130px) {
+                &{
+                    padding: 1em 0.5em;
+                } 
+            }
+
             .more-posts{
                 display: block;
                 width: max-content;

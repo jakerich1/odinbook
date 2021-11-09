@@ -3,13 +3,19 @@
 
     @media screen and (max-width: 1130px) {
         &{
-            padding-right: 0em;
+            padding: 0.5em 0 0.5em 0.5em;
         } 
     }
 
     .sticky{
         position: sticky;
         top: 88px;
+
+        @media screen and (max-width: 500px) {
+            &{
+                top: 64px;
+            } 
+        }
 
         a{
             text-decoration: none;
@@ -26,6 +32,12 @@
                 transition: all 0.1s ease-in;
                 box-shadow: 2px 2px 1px 1px #ebebeb;
 
+                @media screen and (max-width: 1130px) {
+                    &{
+                        margin-bottom: 6px;
+                    }  
+                }
+
                 &:hover{
                     filter: brightness(0.95);
                 }
@@ -37,6 +49,13 @@
                         height: 30px;
                         width: 30px;
                         stroke: #1877f2;
+
+                        @media screen and (max-width: 1130px) {
+                            &{
+                                height: 20px;
+                                width: 20px;
+                            } 
+                        }
                     }
                 }
 
