@@ -5,6 +5,8 @@ This is my submission for the final project in the NodeJS section of The Odin pr
 
 [Live view](https://jakerich1.github.io/odinbook/#/)
 
+[Server repo](https://github.com/jakerich1/odinbook-back)
+
 
 ## Tech Stack
 
